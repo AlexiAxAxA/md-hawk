@@ -117,3 +117,5 @@ TypeScript/Vite успешно. Новый сценарий `home fits small win
 
 GNU GPL-3.0-or-later оформлена в package.json/README/LICENSE. Поставка включает THIRD-PARTY-NOTICES. Windows не подписана; macOS/Linux не проверялись; редактура переводов носителями не подтверждена. Подробные ограничения — known-issues.md.
 Portable EXE 1.2.0: отдельный запуск с файлом с кириллицей и пробелами, заголовок Markdown, запись истории и нормальное закрытие (exit 0) прошли; `.verification/portable-1.2.0.json`. SHA256 Windows-файлов: `release/SHA256SUMS-v1.2.0.txt`.
+
+Публикация: [публичный репозиторий](https://github.com/AlexiAxAxA/md-hawk) и [Release v1.2.0](https://github.com/AlexiAxAxA/md-hawk/releases/tag/v1.2.0). API GitHub подтвердил stable/public, обнаружил GPL-3.0 и совпадение size/SHA256 установщика, portable и SHA256SUMS; `.verification/github-release-1.2.0.json`. Источники лицензированы GPL-3.0-or-later через README/package.json. Обычный запуск установленной 1.2.0 в пользовательском профиле: главное окно MD Hawk, Responding=true, приложение оставлено открытым; `.verification/ordinary-launch-1.2.0.json`.
