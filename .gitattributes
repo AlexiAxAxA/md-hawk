@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.icns binary
+*.pdf binary
+*.docx binary
+LICENSE -whitespace
+THIRD-PARTY-NOTICES.txt -whitespace

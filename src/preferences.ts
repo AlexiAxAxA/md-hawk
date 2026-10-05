@@ -1,0 +1,11 @@
+import preferences from '../shared/preferences.json';
+import type { CSSProperties } from 'react';
+import type { Settings, Theme } from './types';
+export const languages = preferences.languages;
+export const defaultSettings = preferences.defaultSettings as Settings;
+export const paletteKeys = preferences.paletteKeys;
+export const palettes = preferences.palettes;
+export const fonts = { serif: "Georgia, 'Times New Roman', serif", sans: "'Segoe UI', Arial, sans-serif", mono: "Consolas, 'Courier New', monospace" };
+export const paletteLabels: Record<string, string> = { bg: 'Фон окна', surface: 'Поверхность', 'surface-alt': 'Второй фон', ink: 'Цвет текста', muted: 'Второстепенный текст', line: 'Границы', accent: 'Акцент и ссылки', 'accent-soft': 'Фон акцента', code: 'Фон кода', warning: 'Предупреждения', syntax1: 'Синтаксис: первый цвет', syntax2: 'Синтаксис: второй цвет', syntax3: 'Синтаксис: третий цвет' };
+export const palette = (settings: Settings) => ({ ...palettes[settings.theme as Theme], ...settings.customColors[settings.theme] });
+export const themeStyle = (settings: Settings): CSSProperties => Object.fromEntries(Object.entries(palette(settings)).map(([key, value]) => ['--' + key, value]));

@@ -1,0 +1,163 @@
+{
+  "name": "md-hawk",
+  "productName": "MD Hawk",
+  "version": "1.2.0",
+  "description": "Локальная читалка Markdown, PDF и Word с пространствами",
+  "author": "MD Hawk",
+  "private": true,
+  "type": "module",
+  "overrides": {
+    "@electron/get": "^5.1.0"
+  },
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "node scripts/dev.cjs",
+    "build": "tsc --noEmit && vite build --logLevel warn",
+    "test": "node --test tests/core.test.cjs && vitest run",
+    "test:e2e": "playwright test",
+    "icons": "node scripts/icons.cjs",
+    "pack": "npm run build && npm run icons && electron-builder --dir",
+    "dist:win": "npm run build && npm run icons && node scripts/package.cjs",
+    "dist:mac": "npm run build && npm run icons && electron-builder --mac dmg",
+    "dist:linux": "npm run build && npm run icons && electron-builder --linux AppImage deb",
+    "licenses": "node scripts/license-notices.cjs"
+  },
+  "build": {
+    "appId": "app.mdhawk.reader",
+    "productName": "MD Hawk",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "assets/icon.png",
+      "package.json",
+      "shared/**/*",
+      "LICENSE",
+      "THIRD-PARTY-NOTICES.txt"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "assets/icon.ico",
+      "artifactName": "MD-Hawk-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "include": "assets/installer.nsh",
+      "artifactName": "MD-Hawk-${version}-${arch}-nsis.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "displayLanguageSelector": true,
+      "installerLanguages": [
+        "ru_RU",
+        "en_US",
+        "zh_CN",
+        "es_ES",
+        "fr_FR",
+        "de_DE",
+        "pt_BR",
+        "hi_IN",
+        "ar_SA",
+        "ja_JP",
+        "ko_KR",
+        "it_IT",
+        "tr_TR",
+        "id_ID",
+        "vi_VN"
+      ]
+    },
+    "portable": {
+      "artifactName": "MD-Hawk-${version}-${arch}-portable.${ext}"
+    },
+    "mac": {
+      "fileAssociations": [
+        {
+          "role": "Viewer",
+          "ext": [
+            "md",
+            "markdown",
+            "mdown",
+            "pdf",
+            "docx"
+          ],
+          "name": "Documents"
+        }
+      ],
+      "category": "public.app-category.productivity",
+      "icon": "assets/icon.png",
+      "artifactName": "MD-Hawk-${version}-${arch}.${ext}"
+    },
+    "linux": {
+      "fileAssociations": [
+        {
+          "mimeType": "text/markdown",
+          "ext": [
+            "md",
+            "markdown",
+            "mdown"
+          ],
+          "name": "Markdown"
+        },
+        {
+          "mimeType": "application/pdf",
+          "ext": [
+            "pdf"
+          ],
+          "name": "PDF"
+        },
+        {
+          "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "ext": [
+            "docx"
+          ],
+          "name": "Word"
+        }
+      ],
+      "category": "Office",
+      "icon": "assets/icon.png",
+      "artifactName": "MD-Hawk-${version}-${arch}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.5.0",
+    "github-slugger": "^2.0.0",
+    "jsdom": "^29.1.1",
+    "katex": "^0.19.0",
+    "lucide-react": "^1.51.0",
+    "mammoth": "^1.13.0",
+    "mermaid": "^12.1.0",
+    "pdfjs-dist": "^6.4.299",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-katex": "^7.0.1",
+    "rehype-raw": "^7.0.0",
+    "rehype-sanitize": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  },
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexiAxAxA/md-hawk.git"
+  },
+  "homepage": "https://github.com/AlexiAxAxA/md-hawk",
+  "bugs": {
+    "url": "https://github.com/AlexiAxAxA/md-hawk/issues"
+  }
+}

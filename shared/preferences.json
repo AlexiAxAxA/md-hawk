@@ -1,0 +1,218 @@
+{
+  "languages": [
+    {
+      "id": "ru",
+      "name": "Русский",
+      "locale": "ru_RU",
+      "lcid": 1049
+    },
+    {
+      "id": "en",
+      "name": "English",
+      "locale": "en_US",
+      "lcid": 1033
+    },
+    {
+      "id": "zh",
+      "name": "简体中文",
+      "locale": "zh_CN",
+      "lcid": 2052
+    },
+    {
+      "id": "es",
+      "name": "Español",
+      "locale": "es_ES",
+      "lcid": 3082
+    },
+    {
+      "id": "fr",
+      "name": "Français",
+      "locale": "fr_FR",
+      "lcid": 1036
+    },
+    {
+      "id": "de",
+      "name": "Deutsch",
+      "locale": "de_DE",
+      "lcid": 1031
+    },
+    {
+      "id": "pt",
+      "name": "Português",
+      "locale": "pt_BR",
+      "lcid": 1046
+    },
+    {
+      "id": "hi",
+      "name": "हिन्दी",
+      "locale": "hi_IN",
+      "lcid": 1081
+    },
+    {
+      "id": "ar",
+      "name": "العربية",
+      "locale": "ar_SA",
+      "lcid": 1025
+    },
+    {
+      "id": "ja",
+      "name": "日本語",
+      "locale": "ja_JP",
+      "lcid": 1041
+    },
+    {
+      "id": "ko",
+      "name": "한국어",
+      "locale": "ko_KR",
+      "lcid": 1042
+    },
+    {
+      "id": "it",
+      "name": "Italiano",
+      "locale": "it_IT",
+      "lcid": 1040
+    },
+    {
+      "id": "tr",
+      "name": "Türkçe",
+      "locale": "tr_TR",
+      "lcid": 1055
+    },
+    {
+      "id": "id",
+      "name": "Bahasa Indonesia",
+      "locale": "id_ID",
+      "lcid": 1057
+    },
+    {
+      "id": "vi",
+      "name": "Tiếng Việt",
+      "locale": "vi_VN",
+      "lcid": 1066
+    },
+    {
+      "id": "bn",
+      "name": "বাংলা",
+      "locale": "bn_IN",
+      "lcid": 1093
+    }
+  ],
+  "paletteKeys": [
+    "bg",
+    "surface",
+    "surface-alt",
+    "ink",
+    "muted",
+    "line",
+    "accent",
+    "accent-soft",
+    "code",
+    "warning",
+    "syntax1",
+    "syntax2",
+    "syntax3"
+  ],
+  "palettes": {
+    "light": {
+      "bg": "#f3f5f8",
+      "surface": "#ffffff",
+      "surface-alt": "#edf1f5",
+      "ink": "#24333e",
+      "muted": "#657782",
+      "line": "#dce3e9",
+      "accent": "#376a85",
+      "accent-soft": "#e4eff4",
+      "code": "#f0f4f7",
+      "warning": "#8b542a",
+      "syntax1": "#8a417d",
+      "syntax2": "#216e69",
+      "syntax3": "#986426"
+    },
+    "dark": {
+      "bg": "#202832",
+      "surface": "#293440",
+      "surface-alt": "#25303b",
+      "ink": "#e1e9ef",
+      "muted": "#a6b6c2",
+      "line": "#425260",
+      "accent": "#a0cada",
+      "accent-soft": "#344b59",
+      "code": "#202b35",
+      "warning": "#edbd86",
+      "syntax1": "#d5a4d2",
+      "syntax2": "#a4d4bc",
+      "syntax3": "#e8c189"
+    },
+    "mono-light": {
+      "bg": "#eeeeee",
+      "surface": "#ffffff",
+      "surface-alt": "#f3f3f3",
+      "ink": "#111111",
+      "muted": "#5b5b5b",
+      "line": "#d4d4d4",
+      "accent": "#111111",
+      "accent-soft": "#e5e5e5",
+      "code": "#f3f3f3",
+      "warning": "#444444",
+      "syntax1": "#111111",
+      "syntax2": "#444444",
+      "syntax3": "#333333"
+    },
+    "mono-dark": {
+      "bg": "#000000",
+      "surface": "#171717",
+      "surface-alt": "#101010",
+      "ink": "#ffffff",
+      "muted": "#b8b8b8",
+      "line": "#444444",
+      "accent": "#ffffff",
+      "accent-soft": "#333333",
+      "code": "#222222",
+      "warning": "#dddddd",
+      "syntax1": "#ffffff",
+      "syntax2": "#cccccc",
+      "syntax3": "#dddddd"
+    },
+    "sepia": {
+      "bg": "#e9dfcc",
+      "surface": "#f6edda",
+      "surface-alt": "#eee4cf",
+      "ink": "#453726",
+      "muted": "#786650",
+      "line": "#d9ccb4",
+      "accent": "#79552d",
+      "accent-soft": "#e5d5b9",
+      "code": "#eee2ca",
+      "warning": "#7a481e",
+      "syntax1": "#79552d",
+      "syntax2": "#5d6a41",
+      "syntax3": "#96582b"
+    },
+    "blue": {
+      "bg": "#e5eefb",
+      "surface": "#f6f9ff",
+      "surface-alt": "#eaf1fe",
+      "ink": "#223757",
+      "muted": "#536d92",
+      "line": "#cbd9ed",
+      "accent": "#2852a3",
+      "accent-soft": "#dce7fb",
+      "code": "#e7effc",
+      "warning": "#815531",
+      "syntax1": "#7253a4",
+      "syntax2": "#23658e",
+      "syntax3": "#8e6a28"
+    }
+  },
+  "defaultSettings": {
+    "theme": "light",
+    "rememberPosition": true,
+    "fontSize": 19,
+    "columnWidth": 780,
+    "language": "ru",
+    "customColors": {},
+    "fontFamily": "serif",
+    "lineHeight": 1.85,
+    "paragraphSpacing": 19
+  }
+}
