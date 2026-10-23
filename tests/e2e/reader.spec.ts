@@ -4,7 +4,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { spawn } from 'node:child_process';
 const require = createRequire(import.meta.url);
-const root = path.resolve('.'), verification = path.join(root, '.verification'), screenshots = path.join(verification, 'screenshots');
+const root = path.resolve('.'), verification = path.resolve(process.env.MD_HAWK_TEST_ARTIFACTS || path.join(root, '.verification')), screenshots = path.join(verification, 'screenshots');
 process.env.electron_config_cache = path.join(verification, 'electron-cache');
 fs.mkdirSync(screenshots, { recursive: true });
 function fixture(name: string) {
@@ -322,5 +322,41 @@ test('advanced typography, custom palette, reset and multilingual interface pers
     await page.getByRole('button', { name: 'Close settings', exact: true }).click();
     await close(app); ({ app, page } = await launch(f.data));
     await expect(page.getByRole('button', { name: 'Settings', exact: true })).toBeVisible(); expect((await state(page)).settings.language).toBe('en');
+  } finally { await close(app); }
+});
+
+test('library sidebar collapses, stays hidden across document navigation and reopens without losing data', async () => {
+  const f = fixture('library-sidebar-' + Date.now()); let { app, page } = await launch(f.data);
+  try {
+    const sidebar = page.locator('#library-sidebar'), toggle = page.locator('.library-toggle');
+    await expect(sidebar).toBeVisible(); await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    const originalWidth = await page.locator('.home-main').evaluate(element => element.clientWidth);
+    const originalState = await state(page);
+    await toggle.click(); await expect(sidebar).toBeHidden(); await expect(toggle).toHaveAccessibleName('Показать панель');
+    expect(await page.locator('.home-main').evaluate(element => element.clientWidth)).toBeGreaterThan(originalWidth + 150);
+    expect(await state(page)).toEqual(originalState);
+    await openDialog(app, page, f.file);
+    await page.getByRole('button', { name: 'MD Hawk — домашний экран' }).click();
+    await expect(sidebar).toBeHidden();
+    await toggle.click(); await expect(sidebar).toBeVisible(); await expect(page.locator('.file-row')).toHaveCount(1);
+    await page.getByRole('textbox', { name: 'Поиск документов' }).fill('Путеводитель');
+    const populatedState = await state(page);
+    await toggle.click(); await toggle.click();
+    await expect(page.getByRole('textbox', { name: 'Поиск документов' })).toHaveValue('Путеводитель');
+    expect(await state(page)).toEqual(populatedState);
+    await page.getByRole('button', { name: 'Настройки', exact: true }).click();
+    await page.getByRole('combobox', { name: 'Язык интерфейса' }).selectOption('en');
+    await page.getByRole('button', { name: 'Close settings' }).click();
+    await expect(toggle).toHaveAccessibleName('Hide sidebar');
+    await toggle.focus(); await page.keyboard.press('Enter'); await expect(sidebar).toBeHidden();
+    await expect(toggle).toHaveAccessibleName('Show sidebar');
+    await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].setSize(560, 420));
+    const layout = await page.locator('.home-main').evaluate(element => ({ overflowX: element.scrollWidth > element.clientWidth + 1, overflowY: element.scrollHeight > element.clientHeight + 1 }));
+    expect(layout).toEqual({ overflowX: false, overflowY: false });
+    await expect(toggle).toBeVisible(); await page.keyboard.press('Space'); await expect(sidebar).toBeVisible();
+    await toggle.click(); await close(app); ({ app, page } = await launch(f.data));
+    await expect(page.locator('#library-sidebar')).toBeVisible();
+    await expect(page.locator('.library-toggle')).toHaveAccessibleName('Hide sidebar');
+    expect((await state(page)).documents).toHaveLength(1);
   } finally { await close(app); }
 });

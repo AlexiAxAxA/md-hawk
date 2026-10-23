@@ -192,3 +192,6 @@ button svg { flex-shrink: 0; }
 
 .document-tabs { direction: ltr; }
 .code-copy { user-select: none; }
+
+.library[hidden] { display: none; }
+.library-toggle { align-self: center; flex-shrink: 0; margin-inline: 8px 2px; }

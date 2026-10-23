@@ -4,7 +4,7 @@ const net = require('node:net');
 const { spawn } = require('node:child_process');
 const { chromium } = require('@playwright/test');
 const root = path.resolve(__dirname, '..');
-const dir = path.join(root, '.verification', 'portable-' + Date.now());
+const dir = path.join(process.env.MD_HAWK_TEST_ARTIFACTS || path.join(root, '.verification'), 'portable-' + Date.now());
 fs.mkdirSync(dir, { recursive: true });
 const file = path.join(dir, 'Проверка portable.md');
 fs.writeFileSync(file, '# Portable работает\n\nФайл с кириллицей и пробелами.\n');

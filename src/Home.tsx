@@ -8,7 +8,7 @@ export function HawkMark({ className = '' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M7 15L30 23L22 35L7 15ZM57 15L34 23L42 35L57 15Z" fill="currentColor" opacity=".45"/><path d="M16 20L31 27L48 20L42 34L34 40L32 54L25 39L21 34L16 20Z" fill="currentColor"/><path d="M27 30L31 32L28 35L27 30ZM37 30L33 32L36 35L37 30Z" fill="var(--surface, #fff)"/></svg>;
 }
 function date(value: number) { return new Intl.DateTimeFormat(getLanguage(), { day: 'numeric', month: 'short' }).format(value); }
-export function Home({ documents, settings, spaces, onOpen, onAdd, onPin, onRemove, onRelocate }: { documents: DocumentRecord[]; settings: Settings; spaces?: ReactNode; onOpen: (id: string) => void; onAdd: () => void; onPin: (id: string, value: boolean) => void; onRemove: (id: string) => void; onRelocate: (id: string) => void }) {
+export function Home({ sidebarVisible, documents, settings, spaces, onOpen, onAdd, onPin, onRemove, onRelocate }: { sidebarVisible: boolean; documents: DocumentRecord[]; settings: Settings; spaces?: ReactNode; onOpen: (id: string) => void; onAdd: () => void; onPin: (id: string, value: boolean) => void; onRemove: (id: string) => void; onRelocate: (id: string) => void }) {
   const [query, setQuery] = useState('');
   const filtered = documents.filter(doc => (doc.title + ' ' + doc.path).toLocaleLowerCase().includes(query.toLocaleLowerCase()));
   const pinned = filtered.filter(doc => doc.pinned), recent = filtered.filter(doc => !doc.pinned);
@@ -18,7 +18,7 @@ export function Home({ documents, settings, spaces, onOpen, onAdd, onPin, onRemo
     <div className="file-actions"><span className="file-date">{date(doc.lastOpened)}</span><button className={'icon-button ' + (doc.pinned ? 'pinned' : '')} aria-label={doc.pinned ? t('Открепить ') + doc.title : t('Закрепить ') + doc.title} onClick={() => onPin(doc.id, !doc.pinned)}><Pin size={15} /></button><button className="icon-button" aria-label={t('Убрать из истории ') + doc.title} onClick={() => onRemove(doc.id)}><Trash2 size={15} /></button></div>
     {doc.missing && <button className="relocate-button" onClick={() => onRelocate(doc.id)}>{t("Указать новое расположение")}</button>}
   </div>)}</section> : null;
-  return <main className="home"><aside className="library">
+  return <main className="home"><aside id="library-sidebar" className="library" aria-label={t("Библиотека")} hidden={!sidebarVisible}>
     <div className="library-heading"><h2>{t("Мои документы")}</h2><button className="icon-button" title={t("Открыть файл")} aria-label={t("Добавить документ")} onClick={onAdd}><FilePlus2 size={21} /></button></div>
     <label className="search-field"><Search size={17} /><input aria-label={t("Поиск документов")} placeholder={t("Найти документ")} value={query} onChange={e => setQuery(e.target.value)} /></label>
     <div className="library-scroll">{spaces}{section(t('Закреплённые'), pinned)}{section(t('Недавние'), recent)}{!filtered.length && <div className="library-empty"><FileText size={30} /><p>{query ? t('Ничего не найдено') : t('Здесь будут ваши документы')}</p><small>{query ? t('Попробуйте другое название.') : t('Откройте первый документ.')}</small></div>}</div>

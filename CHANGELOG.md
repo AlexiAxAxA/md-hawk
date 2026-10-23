@@ -1,5 +1,9 @@
 # Version history
 
+## 1.2.1 — 2026-10-23
+
+Collapse and reopen the library sidebar using the button beside the Library tab. The document card expands to use the available width. The choice survives document navigation within the session; a new launch starts with the sidebar visible.
+
 ## 1.2.0 — 2026-10-05
 
 One-click code copying, whole-line selection from the right margin, custom theme colours and typography, 8–40 px text, safe reading-settings reset, and 16 interface languages. Windows installer language selection. First public GNU GPLv3-or-later release.

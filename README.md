@@ -6,14 +6,14 @@
 
 I built this for myself: a quiet place to read my notes and pick up where I left off. If it helps you too, you're welcome to use it, share it or improve it.
 
-**v1.2.0** · **16 languages** · **GNU GPLv3+** · No accounts or cloud sync.
+**v1.2.1** · **16 languages** · **GNU GPLv3+** · No accounts or cloud sync.
 
-[Download for Windows](https://github.com/AlexiAxAxA/md-hawk/releases/tag/v1.2.0) · [Version history](CHANGELOG.md) · [Report a bug](https://github.com/AlexiAxAxA/md-hawk/issues)
+[Download for Windows](https://github.com/AlexiAxAxA/md-hawk/releases/tag/v1.2.1) · [Version history](CHANGELOG.md) · [Report a bug](https://github.com/AlexiAxAxA/md-hawk/issues)
 
 ## What it does
 
 - Opens `.md`, `.markdown`, `.mdown`, `.pdf` and `.docx`.
-- Keeps history, pinned documents, draggable tabs and document groups called **spaces**.
+- Keeps history, pinned documents, draggable tabs and document groups called **spaces**. Collapse the library sidebar with the button beside the Library tab.
 - Remembers your reading position, optionally; manual bookmarks work either way.
 - Renders tables, code, images, footnotes, KaTeX formulas and Mermaid diagrams.
 - Copies code with one click; selects whole lines from the right margin in Markdown/DOCX.
@@ -27,15 +27,15 @@ Your library stays on your computer. Removing a history entry never deletes the 
 
 ![Dark reader: contents, code copying and Mermaid diagrams](docs/images/reader.png)
 
-*Real screenshots from the Windows app, with an English interface and demo documents.*
+*Screenshots show v1.2.0, with an English interface and demo documents.*
 
 ## Quick install
 
 ### Windows
 
-Download the [installer](https://github.com/AlexiAxAxA/md-hawk/releases/download/v1.2.0/MD-Hawk-1.2.0-x64-nsis.exe), run it and choose your language. Prefer no installation? Use the [portable EXE](https://github.com/AlexiAxAxA/md-hawk/releases/download/v1.2.0/MD-Hawk-1.2.0-x64-portable.exe).
+Download the [installer](https://github.com/AlexiAxAxA/md-hawk/releases/download/v1.2.1/MD-Hawk-1.2.1-x64-nsis.exe), run it and choose your language. Prefer no installation? Use the [portable EXE](https://github.com/AlexiAxAxA/md-hawk/releases/download/v1.2.1/MD-Hawk-1.2.1-x64-portable.exe).
 
-Windows x64 is tested. Builds are unsigned, so Windows may show a warning. [SHA256 checksums](https://github.com/AlexiAxAxA/md-hawk/releases/download/v1.2.0/SHA256SUMS-v1.2.0.txt) are included. The installer offers 15 languages; all 16, including Bengali, are available in Settings. Updates preserve your preferences.
+Windows x64 is tested. Builds are unsigned, so Windows may show a warning. [SHA256 checksums](https://github.com/AlexiAxAxA/md-hawk/releases/download/v1.2.1/SHA256SUMS-v1.2.1.txt) are included. The installer offers 15 languages; all 16, including Bengali, are available in Settings. Updates preserve your preferences.
 
 ### Linux & macOS
 
